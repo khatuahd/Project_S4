@@ -27,8 +27,8 @@ class QuizController extends Controller
     {
         $validatedData = $request->validate([
             'description' => 'required|max:255',
-            'sujet' => 'nullable',
-            'type' => 'nullable',
+            'sujet' => 'required|max:255',
+            'type' => 'required|max:255',
             // 'question_id' => 'nullable',
         ]);
 

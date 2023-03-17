@@ -22,12 +22,17 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Type</label>
-            <textarea class="form-control @error('description') is-invalid @enderror" id="type" name="type">{{ old('type') }}</textarea>
-            @error('description')
+            <label for="type" class="form-label">Type</label>
+            <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                <option value="beginner" @if(old('type') == 'beginner') selected @endif>Beginner</option>
+                <option value="intermediate" @if(old('type') == 'intermediate') selected @endif>Intermediate</option>
+                <option value="advanced" @if(old('type') == 'advanced') selected @endif>Advanced</option>
+            </select>
+            @error('type')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
+        
 
         {{-- <div class="mb-3">
             <label for="duration" class="form-label">Duration (in minutes)</label>

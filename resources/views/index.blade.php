@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Quiz List</h1>
+    <h1>Quizzes List</h1>
 
     <a href="{{ route('create') }}" class="btn btn-primary mb-3">Create Quiz</a>
 
@@ -11,7 +11,8 @@
                 <th>ID</th> --}}
                 <th>Title</th>
                 <th>Description</th>
-                <th>Duration</th>
+                <th>Type</th>
+                {{-- <th>Duration</th> --}}
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,14 +26,14 @@
                     <td>
                         {{ $q->description }}
                     </td>
+                    {{-- <td>
+                        <a href="{{ route('quiz.show', $q->id) }}">{{ $q->description }}</a>
+                    </td>                     --}}
                     <td>
                         {{ $q->sujet }}
                     </td>
                     <td>
                         {{ $q->type }}
-                    </td>
-                    <td>
-                        {{ $q->duration }}
                     </td>
                     <td>
                         <a href="{{ route('edit', $q->id) }}" class="btn btn-sm btn-primary">Edit</a>
