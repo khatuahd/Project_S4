@@ -10,10 +10,10 @@ class Quiz extends Model
     use HasFactory;
     protected $table = 'quizzes';
     protected $fillable = ['id','description', 'sujet','type'];
-    // public function questions()
-    // {
-    //     return $this->hasMany(Question::class);
-    // }
+    public function questions()
+    {
+        return $this->hasMany(questions::class);
+    }
 
     // public function results()
     // {
