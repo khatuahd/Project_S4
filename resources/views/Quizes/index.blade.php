@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
-@section('content')
-    <h1>Quizzes List</h1>
-
-    <a href="{{ route('create') }}" class="btn btn-primary mb-3">Create Quiz</a>
-
-    <table class="table">
+@section('content')        
+    <h4 class="border-bottom pb-2 ">List des quizzes</h4  >
+    <div class="d-flex justify-content-end">
+      <a href="{{ route('qcreate')}}" class="btn btn-primary mb-4">Ajouter un Quiz</a> 
+    </div>
+    <table class="table table-bordered table-hover">
         <thead>
             {{-- <tr>
                 <th>ID</th> --}}
                 <th>Title</th>
                 <th>Description</th>
-                <th>Type</th>
+                <th>sujet</th>
                 {{-- <th>Duration</th> --}}
-                <th>Actions</th>
+                <th>Type</th>
             </tr>
         </thead>
         <tbody>

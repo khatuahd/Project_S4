@@ -15,12 +15,12 @@ class QuizController extends Controller
         $quiz = DB::select('SELECT quizzes.id, quizzes.description, quizzes.sujet, quizzes.type FROM quizzes');
         $quiz = (array) $quiz;
         // dd($quizzes);
-        return view('index', compact('quizzes','quiz'));
+        return view('Quizes.index', compact('quizzes','quiz'));
     }
 
-    public function create()
+    public function qcreate()
     {
-        return view('create');
+        return view('Quizes.create');
     }
 
     public function store(Request $request)
@@ -32,16 +32,16 @@ class QuizController extends Controller
             // 'question_id' => 'nullable',
         ]);
 
-        $q = Quiz::create($validatedData);
+        $q = Quiz::qcreate($validatedData);
 
-        return redirect()->route('index')
+        return redirect()->route('Quizes.index')
             ->with('success', 'Quiz created successfully.');
     }
 
         public function edit($id)
     {
         $quiz = Quiz::findOrFail($id);
-        return view('edit', compact('quiz'));
+        return view('Quizes.edit', compact('quiz'));
     }
 
     public function update(Request $request, $id)
@@ -64,7 +64,7 @@ class QuizController extends Controller
         $quiz = Quiz::findOrFail($id);
         $quiz->delete();
 
-        return redirect()->route('index')->with('success', 'Quiz deleted successfully!');
+        return redirect()->route('Quizes.index')->with('success', 'Quiz deleted successfully!');
     }
 }
 
